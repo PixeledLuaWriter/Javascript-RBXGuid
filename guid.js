@@ -18,11 +18,11 @@ const genRandString = (Length) => {
 }
 
 const ConvertRandStringToGUID = (IsWrappedInCurlyBrackets) => {
-    if(!IsWrappedInCurlyBrackets) {
+    if(IsWrappedInCurlyBrackets == false) {
         return genRandString(8) + '-' + genRandString(4) + '-' + genRandString(4) + '-' + genRandString(4) + '-' + genRandString(12)
-    } else if(IsWrappedInCurlyBrackets) {
+    } else if(IsWrappedInCurlyBrackets == true) {
         return '{' + genRandString(8) + '-' + genRandString(4) + '-' + genRandString(4) + '-' + genRandString(4) + '-' + genRandString(12) + '}'
-    } else if(IsWrappedInCurlyBrackets === null) {
+    } else if(IsWrappedInCurlyBrackets == null && typeof(IsWrappedInCurlyBrackets) != "boolean") {
         return '{' + genRandString(8) + '-' + genRandString(4) + '-' + genRandString(4) + '-' + genRandString(4) + '-' + genRandString(12) + '}'
     }
 }
