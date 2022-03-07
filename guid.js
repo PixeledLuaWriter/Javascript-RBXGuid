@@ -17,8 +17,14 @@ const genRandString = (Length) => {
     return str.slice(0, Length) // Fixes Doubled Length Problem For Yielded Output
 }
 
-const ConvertRandStringToGUID = () => {
-    return genRandString(8) + '-' + genRandString(4) + '-' + genRandString(4) + '-' + genRandString(4) + '-' + genRandString(12)
+const ConvertRandStringToGUID = (IsWrappedInCurlyBrackets) => {
+    if(!IsWrappedInCurlyBrackets) {
+        return genRandString(8) + '-' + genRandString(4) + '-' + genRandString(4) + '-' + genRandString(4) + '-' + genRandString(12)
+    } else if(IsWrappedInCurlyBrackets) {
+        return '{' + genRandString(8) + '-' + genRandString(4) + '-' + genRandString(4) + '-' + genRandString(4) + '-' + genRandString(12) + '}'
+    } else if(IsWrappedInCurlyBrackets === null) {
+        return '{' + genRandString(8) + '-' + genRandString(4) + '-' + genRandString(4) + '-' + genRandString(4) + '-' + genRandString(12) + '}'
+    }
 }
 
 // Benchmark Stuff (Keep This If Your Gonna Test, If Not Then Just Remove The Lines Below that's not below 'ConvertRandStringToGUID()')
