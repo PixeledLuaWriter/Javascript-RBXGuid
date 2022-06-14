@@ -9,7 +9,7 @@
    When Redistributing This
  */
 
-const genRandString = (Length: number) => {
+const genRandString = (Length: number): string => {
     let str = '';
     for (let i = 0; i < Length; i++) {
         str += String.fromCharCode(Math.floor((Math.random() * (57 - 48 + 1) + 48)), Math.floor((Math.random() * (90 - 65 + 1) + 65)));
@@ -17,7 +17,7 @@ const genRandString = (Length: number) => {
     return str.slice(0, Length);
 }
 
-const GenerateGUID = (IsWrappedInCurlyBrackets: boolean = null) => {
+const GenerateGUID = (IsWrappedInCurlyBrackets: boolean = null): string => {
     if(!IsWrappedInCurlyBrackets) {
         return genRandString(8) + '-' + genRandString(4) + '-' + genRandString(4) + '-' + genRandString(4) + '-' + genRandString(12);
     } else if(IsWrappedInCurlyBrackets || IsWrappedInCurlyBrackets === null && typeof(IsWrappedInCurlyBrackets) === 'undefined') {
